@@ -31,19 +31,19 @@ User.fetchSelfFeed().then { (mediaArray, page) -> Void in
 IGKit use SafariViewController to handle login stuff, please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for details.
 
 Here are the steps:
-* First you need to add the URLScheme in Info.plist of project according to your `redirect-uri`. For example if you `redirect-uri` is `SampleApp://authorize`, then you should fill the value like below:
+* First you need to add the URLScheme in Info.plist of project according to your `redirect-uri`. For example if you `redirect-uri` is `SampleApp://authorize`, then you should fill the value as below:
 ```
 <key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>SampleApp</string>
-			</array>
-		</dict>
-	</array>
+<array>
+	<dict>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>SampleApp</string>
+		</array>
+	</dict>
+</array>
 ```
-* Then you need to register with necessary information to receive access token.
+* Then you need to register with necessary information to receive `access_token`.
 ```swift
 func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     IGKit.register("Your Client ID", secret: "Your Client Secret", redirectURI: "Your Redirect URI")
