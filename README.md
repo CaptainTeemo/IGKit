@@ -28,7 +28,7 @@ User.fetchSelfFeed().then { (mediaArray, page) -> Void in
 }
 ```
 ### Authentication
-IGKit use SafariViewController to handle login stuff, please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for details.
+IGKit uses SafariViewController to handle login stuff, please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for details.
 
 Here are the steps:
 * First you need to add the URLScheme in Info.plist of project according to your `redirect-uri`. For example if you `redirect-uri` is `SampleApp://authorize`, then you should fill the value as below:
