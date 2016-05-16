@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Promise Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Promise" class="dashAnchor"></a>
+    <a title="Promise Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (50% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Promise Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Authentication.html">Authentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Comment.html">Comment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Location.html">Location</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Media.html">Media</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Pagination.html">Pagination</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Promise.html">Promise</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Tag.html">Tag</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/User.html">User</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/RelationshipAction.html">RelationshipAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/Scope.html">Scope</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Functions.html">Functions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Functions.html#/s:F5IGKit8registerFTSS6secretSS11redirectURISS_T_">register(_:secret:redirectURI:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/JSONConvertible.html">JSONConvertible</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs.html#/s:V5IGKit12UserDefaults">UserDefaults</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Promise</h1>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5IGKit7PromisecFFT7fulfillFxT_6rejectFPs9ErrorType_T__T_GS0_x_"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5IGKit7PromisecFFT7fulfillFxT_6rejectFPs9ErrorType_T__T_GS0_x_">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code><a href="../Classes/Promise.html">Promise</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolver</span><span class="p">:</span> <span class="p">(</span><span class="nv">fulfill</span><span class="p">:</span> <span class="kt">T</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="nv">reject</span><span class="p">:</span> <span class="kt">ErrorType</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>resolver</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Resolver should call fulfill or reject when their task finished.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code><a href="../Classes/Promise.html">Promise</a></code> instance.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5IGKit7Promise4thenurFFxqd__GS0_qd___"></a>
+                    <a name="//apple_ref/swift/Method/then(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5IGKit7Promise4thenurFFxqd__GS0_qd___">then(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A general <code>then</code> call on a <code><a href="../Classes/Promise.html">Promise</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">then</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">excecution</span><span class="p">:</span> <span class="kt">T</span> <span class="o">-&gt;</span> <span class="kt">U</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>excecution</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Do something and return a value.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new <code><a href="../Classes/Promise.html">Promise</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5IGKit7Promise4thenurFFxGS0_qd___GS0_qd___"></a>
+                    <a name="//apple_ref/swift/Method/then(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5IGKit7Promise4thenurFFxGS0_qd___GS0_qd___">then(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A general <code>then</code> call on a <code><a href="../Classes/Promise.html">Promise</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">then</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">excecution</span><span class="p">:</span> <span class="kt">T</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Promise</span><span class="o">&lt;</span><span class="kt">U</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>excecution</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Do something and return a <code>Promise</code>.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new <code><a href="../Classes/Promise.html">Promise</a></code>.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC5IGKit7Promise5errorFFPs9ErrorType_T_T_"></a>
+                    <a name="//apple_ref/swift/Method/error(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC5IGKit7Promise5errorFFPs9ErrorType_T_T_">error(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Handle error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">error</span><span class="p">(</span><span class="nv">excecution</span><span class="p">:</span> <span class="kt">ErrorType</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>excecution</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Only executing when error occurs.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2016-05-16)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.6.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
