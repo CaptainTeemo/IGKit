@@ -29,10 +29,10 @@ extension Location {
      - returns: `Promise` with Location.
      */
     public class func fetchLocation(locationId: String) -> Promise<Location> {
-        return Fetcher.fetch("/locations/\(locationId)").then({ (result, page) -> Location in
+        return Fetcher.fetch("/locations/\(locationId)").then { (result, page) -> Location in
             let location = Location.generateModel(result.dictionaryValue)
             return location
-        })
+        }
     }
     
     /**
@@ -45,10 +45,10 @@ extension Location {
      - returns: `Promise` with ([Media], Pagination?).
      */
     public class func fetchLocationMedia(locationId: String) -> Promise<([Media], Pagination?)> {
-        return Fetcher.fetch("/locations/\(locationId)/media/recent").then({ (result, page) -> ([Media], Pagination?) in
+        return Fetcher.fetch("/locations/\(locationId)/media/recent").then { (result, page) -> ([Media], Pagination?) in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return (media, page)
-        })
+        }
     }
     
     /**
@@ -67,10 +67,10 @@ extension Location {
         if let dis = distance {
             param["distance"] = dis
         }
-        return Fetcher.fetch("/locations/search", parameters: param).then({ (result, page) -> [Location] in
+        return Fetcher.fetch("/locations/search", parameters: param).then { (result, page) -> [Location] in
             let locations = result.jsonArrayValue.map { Location.generateModel($0.dictionaryValue) }
             return locations
-        })
+        }
     }
     
     /**
@@ -88,9 +88,9 @@ extension Location {
         if let dis = distance {
             param["distance"] = dis
         }
-        return Fetcher.fetch("/locations/search", parameters: param).then({ (result, page) -> [Location] in
+        return Fetcher.fetch("/locations/search", parameters: param).then { (result, page) -> [Location] in
             let locations = result.jsonArrayValue.map { Location.generateModel($0.dictionaryValue) }
             return locations
-        })
+        }
     }
 }

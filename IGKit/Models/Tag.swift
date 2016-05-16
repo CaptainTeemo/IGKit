@@ -27,10 +27,10 @@ extension Tag {
      - returns: `Promise` with Tag.
      */
     public class func fetchTag(name: String) -> Promise<Tag> {
-        return Fetcher.fetch("/tags/\(name)").then({ (result, page) -> Tag in
+        return Fetcher.fetch("/tags/\(name)").then { (result, page) -> Tag in
             let tag = Tag.generateModel(result.dictionaryValue)
             return tag
-        })
+        }
     }
     
     /**
@@ -44,10 +44,10 @@ extension Tag {
      - returns: `Promise` with ([Media], Pagination?).
      */
     public class func fetchTagMedia(name: String, pagination: Pagination? = nil) -> Promise<([Media], Pagination?)> {
-        return Fetcher.fetch("/tags/\(name)/media/recent").then({ (result, page) -> ([Media], Pagination?) in
+        return Fetcher.fetch("/tags/\(name)/media/recent").then { (result, page) -> ([Media], Pagination?) in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return (media, page)
-        })
+        }
     }
     
     /**
@@ -60,9 +60,9 @@ extension Tag {
      - returns: `Promise` with [Tag].
      */
     public class func searchTag(query: String) -> Promise<[Tag]> {
-        return Fetcher.fetch("/tags/search", parameters: ["q": query]).then({ (result, page) -> [Tag] in
+        return Fetcher.fetch("/tags/search", parameters: ["q": query]).then { (result, page) -> [Tag] in
             let tags = result.jsonArrayValue.map { Tag.generateModel($0.dictionaryValue) }
             return tags
-        })
+        }
     }
 }

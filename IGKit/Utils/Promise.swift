@@ -43,6 +43,7 @@ public class Promise<T> {
     
     /**
      A general `then` call on a `Promise`.
+     Note that excecution might not in the main queue.
      
      - parameter excecution: Do something and return a value.
      
@@ -68,6 +69,7 @@ public class Promise<T> {
     
     /**
      A general `then` call on a `Promise`.
+     Note that excecution might not in the main queue.
      
      - parameter excecution: Do something and return a `Promise`.
      

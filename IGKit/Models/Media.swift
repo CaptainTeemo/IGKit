@@ -38,10 +38,10 @@ extension Media {
      - returns: `Promise` with Media.
      */
     public class func fetchMedia(mediaId: String) -> Promise<Media> {
-        return Fetcher.fetch("/media/\(mediaId)").then({ (result, page) -> Media in
+        return Fetcher.fetch("/media/\(mediaId)").then { (result, page) -> Media in
             let media = Media.generateModel(result.dictionaryValue)
             return media
-        })
+        }
     }
     
     /**
@@ -50,10 +50,10 @@ extension Media {
      - returns: `Promise` with [Media].
      */
     public class func fetchPopularMedia() -> Promise<[Media]> {
-        return Fetcher.fetch("/media/popular").then({ (result, page) -> [Media] in
+        return Fetcher.fetch("/media/popular").then { (result, page) -> [Media] in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return media
-        })
+        }
     }
     
     /**
@@ -65,10 +65,10 @@ extension Media {
      - returns: `Promise` with Media.
      */
     public class func fetchMediaByShortCode(shortCode: String) -> Promise<Media> {
-        return Fetcher.fetch("/media/shortcode/\(shortCode)").then({ (result, page) -> Media in
+        return Fetcher.fetch("/media/shortcode/\(shortCode)").then { (result, page) -> Media in
             let media = Media.generateModel(result.dictionaryValue)
             return media
-        })
+        }
     }
     
     /**
@@ -86,10 +86,10 @@ extension Media {
         if let dis = distance {
             param["distance"] = dis
         }
-        return Fetcher.fetch(path).then({ (result, page) -> [Media] in
+        return Fetcher.fetch(path).then { (result, page) -> [Media] in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return media
-        })
+        }
     }
 }
 
@@ -105,10 +105,10 @@ extension Media {
      - returns: `Promise` with [User].
      */
     public class func fetchLikedUsers(mediaId: String) -> Promise<[User]> {
-        return Fetcher.fetch("/media/\(mediaId)/likes").then({ (result, page) -> [User] in
+        return Fetcher.fetch("/media/\(mediaId)/likes").then { (result, page) -> [User] in
             let users = result.jsonArrayValue.map { User.generateModel($0.dictionaryValue) }
             return users
-        })
+        }
     }
     
     /**
@@ -121,7 +121,7 @@ extension Media {
      - returns: `Promise` with Void.
      */
     public class func likeMedia(mediaId: String) -> Promise<Void> {
-        return Fetcher.fetch("/media/\(mediaId)/likes", method: .POST).then({ (result, page) -> Void in })
+        return Fetcher.fetch("/media/\(mediaId)/likes", method: .POST).then { (result, page) -> Void in }
     }
     
     /**
@@ -134,7 +134,7 @@ extension Media {
      - returns: `Promise` with Void.
      */
     public class func unlikeMedia(mediaId: String) -> Promise<Void> {
-        return Fetcher.fetch("/media/\(mediaId)/likes", method: .Delete).then({ (result, page) -> Void in })
+        return Fetcher.fetch("/media/\(mediaId)/likes", method: .Delete).then { (result, page) -> Void in }
     }
 }
 
@@ -151,10 +151,10 @@ extension Media {
      */
     
     public class func fetchComments(mediaId: String) -> Promise<[Comment]> {
-        return Fetcher.fetch("/media/\(mediaId)/comments").then({ (result, page) -> [Comment] in
+        return Fetcher.fetch("/media/\(mediaId)/comments").then { (result, page) -> [Comment] in
             let comments = result.jsonArrayValue.map { Comment.generateModel($0.dictionaryValue) }
             return comments
-        })
+        }
     }
     
     /**
@@ -187,6 +187,6 @@ extension Media {
      - returns: `Promise` with Void.
      */
     public class func deleteComment(mediaId: String, commentId: String) -> Promise<Void> {
-        return Fetcher.fetch("/media/\(mediaId)/comments/\(commentId)", method: .Delete).then({ (result, page) -> Void in })
+        return Fetcher.fetch("/media/\(mediaId)/comments/\(commentId)", method: .Delete).then { (result, page) -> Void in }
     }
 }

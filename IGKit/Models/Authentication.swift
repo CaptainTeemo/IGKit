@@ -15,6 +15,7 @@ import SafariServices
 public class Authentication: NSObject {
     
     private static let _auth = Authentication()
+    private var loginClosure: ((NSError?) -> Void)?
     
     /**
      Call this function in `- application:openURL:options:` from AppDelegate to receive access token from SafariViewController.
@@ -24,6 +25,9 @@ public class Authentication: NSObject {
             let param = Request.decodeParameters(url, query: false)
             if let token = param["access_token"] {
                 UserDefaults.save([AccessTokenKey: token])
+                _auth.loginClosure?(nil)
+            } else {
+                _auth.loginClosure?(NSError.error(-300, description: param["error"] ?? ""))
             }
         }
     }
@@ -31,11 +35,12 @@ public class Authentication: NSObject {
     /**
      Login from a viewController.     
      */
-    public class func login(scope: [Scope], viewController: UIViewController) {
+    public class func login(scope: [Scope], viewController: UIViewController, done: ((NSError?) -> Void)) {
         let permissions = Scope.encode(scope)
         let authUrl = "https://api.instagram.com/oauth/authorize/?client_id=\(UserDefaults.clientId)&redirect_uri=\(UserDefaults.redirectURI)&response_type=token&scope=\(permissions)"
         let safari = SFSafariViewController(URL: NSURL(string: authUrl)!)
         safari.delegate = _auth
+        _auth.loginClosure = done
         viewController.presentViewController(safari, animated: true, completion: nil)
     }
 }

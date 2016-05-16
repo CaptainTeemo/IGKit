@@ -87,10 +87,10 @@ extension User {
      - returns: `Promise` with ([Media], Pagination?).
      */
     public class func fetchUserRecentMedia(userId: String, pagination: Pagination? = nil) -> Promise<([Media], Pagination?)> {
-        return Fetcher.fetch("/users/\(userId)/media/recent", pagination: pagination).then({ (result, page) -> ([Media], Pagination?) in
+        return Fetcher.fetch("/users/\(userId)/media/recent", pagination: pagination).then { (result, page) -> ([Media], Pagination?) in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return (media, page)
-        })
+        }
     }
     
     /**
@@ -101,10 +101,10 @@ extension User {
      - returns: `Promise` with ([Media], Pagination?).
      */
     public class func fetchSelfFeed(pagination: Pagination? = nil) -> Promise<([Media], Pagination?)> {
-        return Fetcher.fetch("/users/self/feed", pagination: pagination).then({ (result, page) -> ([Media], Pagination?) in
+        return Fetcher.fetch("/users/self/feed", pagination: pagination).then { (result, page) -> ([Media], Pagination?) in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return (media, page)
-        })
+        }
     }
     
     /**
@@ -115,10 +115,10 @@ extension User {
      - returns: `Promise` with ([Media], Pagination?).
      */
     public class func fetchSelfLiked(pagination: Pagination? = nil) -> Promise<([Media], Pagination?)> {
-        return Fetcher.fetch("/users/self/media/liked", pagination: pagination).then({ (result, page) -> ([Media], Pagination?) in
+        return Fetcher.fetch("/users/self/media/liked", pagination: pagination).then { (result, page) -> ([Media], Pagination?) in
             let media = result.jsonArrayValue.map { Media.generateModel($0.dictionaryValue) }
             return (media, page)
-        })
+        }
     }
     
     /**
@@ -131,10 +131,10 @@ extension User {
      */
     public class func searchUser(query: String) -> Promise<[User]> {
         let param = ["q": query]
-        return Fetcher.fetch("/users/search", parameters: param).then({ (result, page) -> [User] in
+        return Fetcher.fetch("/users/search", parameters: param).then { (result, page) -> [User] in
             let users = result.jsonArrayValue.map { User.generateModel($0.dictionaryValue) }
             return users
-        })
+        }
     }
 }
 
@@ -148,10 +148,10 @@ extension User {
      - returns: `Promise` with [User].
      */
     public class func fetchSelfFollows() -> Promise<[User]> {
-        return Fetcher.fetch("/users/self/follows").then({ (result, page) -> [User] in
+        return Fetcher.fetch("/users/self/follows").then { (result, page) -> [User] in
             let users = result.jsonArrayValue.map { User.generateModel($0.dictionaryValue) }
             return users
-        })
+        }
     }
     
     /**
@@ -161,10 +161,10 @@ extension User {
      - returns: `Promise` with [User].
      */
     public class func fetchSelfFollowers() -> Promise<[User]> {
-        return Fetcher.fetch("/users/self/followed-by").then({ (result, page) -> [User] in
+        return Fetcher.fetch("/users/self/followed-by").then { (result, page) -> [User] in
             let users = result.jsonArrayValue.map { User.generateModel($0.dictionaryValue) }
             return users
-        })
+        }
     }
     
     /**
@@ -174,10 +174,10 @@ extension User {
      - returns: `Promise` with [User].
      */
     public class func fetchSelfRequesters() -> Promise<[User]> {
-        return Fetcher.fetch("/users/self/requested-by").then({ (result, page) -> [User] in
+        return Fetcher.fetch("/users/self/requested-by").then { (result, page) -> [User] in
             let users = result.jsonArrayValue.map { User.generateModel($0.dictionaryValue) }
             return users
-        })
+        }
     }
     
     /**
@@ -193,11 +193,11 @@ extension User {
      - returns: `Promise` with (outgoing_status, incoming_status).
      */
     public class func getRelationship(userId: String) -> Promise<(String, String)> {
-        return Fetcher.fetch("/users/\(userId)/relationship").then({ (result, page) -> (String, String) in
+        return Fetcher.fetch("/users/\(userId)/relationship").then { (result, page) -> (String, String) in
             let outgoingStatus = result["outgoing_status"].stringValue
             let incomingStatus = result["incoming_status"].stringValue
             return (outgoingStatus, incomingStatus)
-        })
+        }
     }
     
     /**
@@ -214,10 +214,10 @@ extension User {
      - returns: `Promise` with (outgoing_status, incoming_status).
      */
     public class func modifyRelationship(userId: String, action: RelationshipAction) -> Promise<(String, String)> {
-        return Fetcher.fetch("/users/\(userId)/relationship", method: .POST, parameters: ["action": action.rawValue]).then({ (result, page) -> (String, String) in
+        return Fetcher.fetch("/users/\(userId)/relationship", method: .POST, parameters: ["action": action.rawValue]).then { (result, page) -> (String, String) in
             let outgoingStatus = result["outgoing_status"].stringValue
             let incomingStatus = result["incoming_status"].stringValue
             return (outgoingStatus, incomingStatus)
-        })
+        }
     }
 }
