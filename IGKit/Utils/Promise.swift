@@ -37,13 +37,13 @@ public class Promise<T> {
     
     deinit {
         if case .Pending = _state {
-            debugPrint("Warning: Deallocated a pending Promise.")
+            debugPrint("Warning: deallocated a pending Promise.")
         }
     }
     
     /**
      A general `then` call on a `Promise`.
-     Note that excecution might not in the main queue.
+     Note that excecution might not be in the main queue.
      
      - parameter excecution: Do something and return a value.
      
@@ -69,7 +69,7 @@ public class Promise<T> {
     
     /**
      A general `then` call on a `Promise`.
-     Note that excecution might not in the main queue.
+     Note that excecution might not in be the main queue.
      
      - parameter excecution: Do something and return a `Promise`.
      
