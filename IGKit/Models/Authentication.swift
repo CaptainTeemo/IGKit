@@ -56,8 +56,9 @@ extension Authentication: WKNavigationDelegate {
     public func webView(webView: WKWebView, decidePolicyForNavigationAction navigationAction: WKNavigationAction, decisionHandler: (WKNavigationActionPolicy) -> Void) {
         _indicator.startAnimating()
         
-        if let url = navigationAction.request.URL where url.absoluteString.rangeOfString("\(UserDefaults.redirectURI)", options: .CaseInsensitiveSearch)?.count > 0 {
+        if let url = navigationAction.request.URL where url.path == NSURL(string: UserDefaults.redirectURI)?.path {
             let param = Request.decodeParameters(url, query: false)
+            
             if let token = param["access_token"] {
                 UserDefaults.save([AccessTokenKey: token])
                 _loginClosure?(nil)
