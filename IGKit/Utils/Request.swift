@@ -30,12 +30,11 @@ public struct Request {
         var bodyData: NSData?
         
         if let parameters = parameters {
-            let encodedParam = encodeParameters(parameters)
             switch method {
             case .GET, .Delete:
-                encodedUrlString += encodedParam
+                encodedUrlString += encodeParameters(parameters)
             case .POST:
-                bodyData = encodedParam.dataUsingEncoding(NSUTF8StringEncoding)
+                bodyData = encodeParameters(parameters, query: false).dataUsingEncoding(NSUTF8StringEncoding)
             }
         }
                 
