@@ -28,7 +28,7 @@ User.fetchSelfFeed().then { (mediaArray, page) -> Void in
 }
 ```
 ### Authentication
-IGKit uses Webkit to handle login stuff  please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for `Authentication` details.
+IGKit uses Webkit to handle login stuff, please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for `Authentication` details.
 
 So login could as easy as:
 ```swift
