@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct JSON {
+public struct JSON {
     
     let object: AnyObject?
     

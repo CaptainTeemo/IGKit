@@ -63,7 +63,7 @@ public class Promise<T> {
         default:
             debugPrint("Warning: returning a pending promise that might never be fulfilled or rejected")
         }
-        // It should never happen.
+        // This should never happen.
         return Promise<U>({ (fulfill, reject) in })
     }
     
@@ -87,7 +87,7 @@ public class Promise<T> {
         default:
             debugPrint("Warning: returning a pending promise that might never be fulfilled or rejected")
         }
-        // It should never happen.
+        // This should never happen.
         return Promise<U>({ (fulfill, reject) in })
     }
     

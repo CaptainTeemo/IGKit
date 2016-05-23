@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum Method: String {
+public enum Method: String {
     case GET
     case POST
     case Delete
 }
 
-struct Request {
+public struct Request {
     
     /**
      Make a HTTP request.
@@ -25,7 +25,7 @@ struct Request {
      
      - returns: `Promise` with JSON.
      */
-    static func request(method: Method, urlString: String, parameters: [String: AnyObject]? = nil) -> Promise<JSON> {
+    public static func request(method: Method, urlString: String, parameters: [String: AnyObject]? = nil) -> Promise<JSON> {
         var encodedUrlString = urlString
         var bodyData: NSData?
         
