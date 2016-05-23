@@ -28,36 +28,9 @@ User.fetchSelfFeed().then { (mediaArray, page) -> Void in
 }
 ```
 ### Authentication
-IGKit uses SafariViewController to handle login stuff, please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for details.
+IGKit uses Webkit to handle login stuff  please refer [Instagram Documentation](https://www.instagram.com/developer/authentication/) for `Authentication` details.
 
-Here are the steps:
-* First you need to add the URLScheme in Info.plist of project according to your `redirect-uri`. For example if you `redirect-uri` is `SampleApp://authorize`, then you should fill the value as below:
-```
-<key>CFBundleURLTypes</key>
-<array>
-	<dict>
-		<key>CFBundleURLSchemes</key>
-		<array>
-			<string>SampleApp</string>
-		</array>
-	</dict>
-</array>
-```
-* Then you need to register with necessary information to receive `access_token`.
-```swift
-func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    IGKit.register("Your Client ID", secret: "Your Client Secret", redirectURI: "Your Redirect URI")
-    return true
-}
-```
-* One more step is to handle the callback URL in `AppDelegate`, just like this:
-```swift
-func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
-    Authentication.openURL(url, options: options)
-    return true
-}
-```
-* Finally it's time to login:
+So login could as easy as:
 ```swift
 // in some viewController
 Authentication.login([.Basic], viewController: self, done: { (error) -> Void in
@@ -67,7 +40,7 @@ Authentication.login([.Basic], viewController: self, done: { (error) -> Void in
 The first parameter here is `Login Permission`, see [Document](https://www.instagram.com/developer/authorization/) for details.
 
 ### Requirements
-* iOS 9.0+
+* iOS 8.0+
 * Xcode 7.3+
 
 ### Carthage
