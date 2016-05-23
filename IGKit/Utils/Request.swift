@@ -38,9 +38,7 @@ public struct Request {
                 bodyData = encodedParam.dataUsingEncoding(NSUTF8StringEncoding)
             }
         }
-        
-        print(encodedUrlString)
-        
+                
         let request = NSMutableURLRequest(URL: NSURL(string: encodedUrlString)!)
         request.HTTPMethod = method.rawValue
         request.HTTPBody = bodyData
